@@ -1,0 +1,14 @@
+k8s 클러스터에 ftp서버를 서비스
+
+[환경]
+1. docker에서 제공하는 k8s클러스터를 사용(Macbook pro M3pro)
+2. ftp의 id/password는 k8s의 configMap으로 관리
+3. 외부로부터의 접속은 service로 관리
+4. cli를 통한 접속 및 파일 전송
+5. passive mode
+6. alpine리눅스에 vsftpd를 설치하여 빌드
+
+namespace : etl-file-storage -> 이미 생성되어있음
+pvc : ftp-pvc -> 이미 생성되어있음
+
+클러스터 외부에서 해당 ftp서버에 파일을 전송해야 함

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftp-server
+  namespace: etl-file-storage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ftp-server
+  template:
+    metadata:
+      labels:
+        app: ftp-server
+    spec:
+      containers:
+      - name: ftp-server
+        image: ftp-server
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 21
+        - containerPort: 20
+        - containerPort: 21100
+        - containerPort: 21101
+        - containerPort: 21102
+        - containerPort: 21103
+        - containerPort: 21104
+        - containerPort: 21105
+        - containerPort: 21106
+        - containerPort: 21107
+        - containerPort: 21108
+        - containerPort: 21109
+        - containerPort: 21110
+        env:
+        - name: USER
+          valueFrom:
+            configMapKeyRef:
+              name: ftp-config
+              key: user
+        - name: PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: ftp-config
+              key: password

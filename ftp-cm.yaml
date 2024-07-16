@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ftp-config
+  namespace: etl-file-storage
+data:
+  user: yms
+  password: etl
