@@ -8,6 +8,7 @@ FTP_PASSWORD=${PASSWORD}
 useradd -m -d /datas -s /bin/bash ${FTP_USER}
 echo "${FTP_USER}:${FTP_PASSWORD}" | chpasswd
 chown ${FTP_USER}:${FTP_USER} /datas
+chmod 755 /datas
 
-# vsftpd 실행
+# vsftpd 실행(CMD 인자)
 exec "$@"
